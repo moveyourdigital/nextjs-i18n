@@ -1,0 +1,11 @@
+src
+coverage
+README.md
+node_modules
+jest.config.js
+tsconfig.json
+.eslintrc
+.eslintignore
+.prettierrc
+.gitignore
+.github

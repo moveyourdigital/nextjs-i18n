@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<I18n /> when passing function and elements as placeholders renders string with right substitutes 1`] = `
+Array [
+  "Hi, Jane Doe. See your ",
+  <a
+    href="/messages"
+  >
+    messages
+  </a>,
+  "",
+  " of ",
+  <strong>
+    1/28/2022
+  </strong>,
+  "",
+  "",
+]
+`;
+
+exports[`<I18n /> when passing plurals renders plural form of 0 in the string 1`] = `"Zero artigos"`;
+
+exports[`<I18n /> when passing plurals renders plural form of 1 in the string 1`] = `"Um artigo"`;
+
+exports[`<I18n /> when passing plurals renders plural form of 2 in the string 1`] = `"Dois artigos"`;
+
+exports[`<I18n /> when passing plurals renders plural form of 3 in the string 1`] = `"Vários artigos"`;
+
+exports[`<I18n /> when passing plurals renders plural form of 42 in the string 1`] = `"Vários artigos"`;
+
+exports[`<I18n /> when passing pt and en renders pt text 1`] = `"Olá"`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes 1`] = `"Olá, John Doe. Não tem mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes 2`] = `"Olá, John Doe. Tem 1 mensagem."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes 3`] = `"Olá, John Doe. Tem 2 mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes 4`] = `"Olá, John Doe. Tem 42 mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes on 0 messages 1`] = `"Olá, John Doe. Tem 0 mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes on 1 messages 1`] = `"Olá, John Doe. Tem 1 mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes on 2 messages 1`] = `"Olá, John Doe. Tem 2 mensagens."`;
+
+exports[`<I18n /> when passing strings with placeholders renders string with substitutes on 42 messages 1`] = `"Olá, John Doe. Tem 42 mensagens."`;
