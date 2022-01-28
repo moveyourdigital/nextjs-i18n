@@ -1,6 +1,6 @@
 {
   "name": "nextjs-i18n",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "I18n hook and component for Next.js with support for plurals, Intl and React interpolation",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/moveyourdigital/nextjs-i18n/issues"
   },
-  "homepage": "https://github.com/moveyourdigital/nextjs-i18n#readme",
+  "homepage": "https://github.com/moveyourdigital/nextjs-i18n#README.md",
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",
