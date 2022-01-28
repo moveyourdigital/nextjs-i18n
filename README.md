@@ -2,12 +2,12 @@
 
 I18n hook and component for Next.js with support for plurals, interpolations and JSX substitutions
 
-[![](https://flat.badgen.net/npm/v/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
-[![](https://flat.badgen.net/npm/license/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
-[![](https://flat.badgen.net/npm/types/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
-[![](https://flat.badgen.net/bundlephobia/minzip/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
-[![](https://flat.badgen.net/bundlephobia/tree-shaking/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
-[![](https://flat.badgen.net/npm/dm/editorjs-blocks-react-renderer)](https://www.npmjs.com/package/editorjs-blocks-react-renderer)
+[![](https://flat.badgen.net/npm/v/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
+[![](https://flat.badgen.net/npm/license/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
+[![](https://flat.badgen.net/npm/types/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
+[![](https://flat.badgen.net/bundlephobia/minzip/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
+[![](https://flat.badgen.net/bundlephobia/tree-shaking/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
+[![](https://flat.badgen.net/npm/dm/nextjs-i18n)](https://www.npmjs.com/package/nextjs-i18n)
 
 ## Advantages of using this package ✨
 
