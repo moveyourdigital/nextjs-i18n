@@ -11,12 +11,12 @@ I18n hook and component for Next.js with support for plurals, interpolations and
 
 ## Advantages of using this package ✨
 
-- 📦  **Tiny**: Around ~1kB minzipped.
-- 🚦  **SSR**: Supports SSR and SSG very well.
-- 🌱  **Easy**: No configuration. Just install and use it. No external translation files needed.
-- 🚀  **Powerful**: Supports plurals, templating, variable interpolation, JSX substitutions. Uses mustache syntax.
-- 👩🏽‍🎨  **Context**: Textual strings live in code, close to their context.
-- ✅  **Tests**: Unit tests with good coverage. Feel free to add your owns.
+- 📦 **Tiny**: Around ~1kB minzipped.
+- 🚦 **SSR**: Supports SSR and SSG very well.
+- 🌱 **Easy**: No configuration. Just install and use it. No external translation files needed.
+- 🚀 **Powerful**: Supports plurals, templating, variable interpolation, JSX substitutions. Uses mustache syntax.
+- 👩🏽‍🎨 **Context**: Textual strings live in code, close to their context.
+- ✅ **Tests**: Unit tests with good coverage. Feel free to add your own.
 
 ## Installation 🧑🏻‍💻
 
@@ -125,15 +125,25 @@ function Component = (articles: Article[]) => (
   </div>
 )
 ```
-The example uses the awesome [`dlv`](https://github.com/developit/dlv) package.
+
+The example above would return the following `JSX.Element` (using locale `en`):
+
+```jsx
+<>
+  Hi, JANE. See your <a href="/messages">messages</a> of{" "}
+  <strong>2/28/2021</strong>
+</>
+```
 
 # String rules
 
-* `{{variable}}` performs a direct variable substitution
-* `{{func variable}}` invokes `func` and passes the result of variable substitution
-* `{{func "123"}}` invokes `func` and passes literal string `123`
-* `<tag />` or `<tag>Something</tag>` does JSX interpolation using JSX Element passed in `tag` key. *Note:* A valid `JSX.Element` array is returned by I18n in this case. Be careful when using `t` in contexts that only expect strings, such as backends.
+- `{{variable}}` performs a direct variable substitution
+- `{{func variable}}` invokes `func` and passes the result of variable substitution
+- `{{func "123"}}` invokes `func` and passes literal string `123`
+- `<tag />` or `<tag>Something</tag>` does JSX interpolation using JSX Element passed in `tag` key.
 
+_Note:_ A valid `JSX.Element` array is returned by I18n when at least one parameter is a `JSX.Element`.
+Be careful when using `t` in contexts that only expect strings, such as backends.
 
 ## TODO 🛣
 

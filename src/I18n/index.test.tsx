@@ -14,7 +14,7 @@ jest.mock("next/router", () => ({
 
 describe("<I18n />", () => {
   beforeEach(() => {
-   mockConsole()
+    mockConsole()
   })
 
   describe("when passing pt and en", () => {
