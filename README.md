@@ -142,7 +142,7 @@ The example above would return the following `JSX.Element` (using locale `en`):
 - `{{variable}}` performs a direct variable substitution
 - `{{func variable}}` invokes `func` and passes the result of variable substitution
 - `{{func "123"}}` invokes `func` and passes literal string `123`
-- `<tag />` or `<tag>Something</tag>` does JSX interpolation using JSX Element passed in `tag` key.
+- `<tag>Something</tag>` does JSX interpolation using JSX Element passed in `tag` key.
 
 _Note:_ A valid `JSX.Element` array is returned by I18n when at least one parameter is a `JSX.Element`.
 Be careful when using `t` in contexts that only expect strings, such as backends.

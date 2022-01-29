@@ -149,6 +149,18 @@ describe("<I18n />", () => {
           />,
         ).toJSON(),
       ).toMatchSnapshot()
+
+      expect(
+        create(
+          <I18n
+            en="How did that happen? Maybe this route was valid in a point of time or the matrix had a glitch. Anyway, you can go back to our <link>homepage</link> to save the day."
+            pt="Como é que isto aconteceu? É provável que esta rota tenha já existido algures no tempo ou então aconteceu um erro na Matrix. Seja como for, poderá voltar para a <link>homepage</link> e salvar o dia!"
+            params={{
+              link: <a href="/" className="font-bold" />,
+            }}
+          />,
+        ).toJSON(),
+      ).toMatchSnapshot()
     })
   })
 })

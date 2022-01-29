@@ -18,6 +18,20 @@ Array [
 ]
 `;
 
+exports[`<I18n /> when passing function and elements as placeholders renders string with right substitutes 2`] = `
+Array [
+  "How did that happen? Maybe this route was valid in a point of time or the matrix had a glitch. Anyway, you can go back to our ",
+  <a
+    className="font-bold"
+    href="/"
+  >
+    homepage
+  </a>,
+  "",
+  " to save the day.",
+]
+`;
+
 exports[`<I18n /> when passing plurals renders plural form of 0 in the string 1`] = `"Zero artigos"`;
 
 exports[`<I18n /> when passing plurals renders plural form of 1 in the string 1`] = `"Um artigo"`;
