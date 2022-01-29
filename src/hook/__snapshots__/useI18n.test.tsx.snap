@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useI18n t returns the string for 0 messages 1`] = `
+Array [
+  "Olá Jane Doe. Não tem ",
+  <a
+    href="/messages"
+  >
+    mensagens
+  </a>,
+  "",
+  " do dia ",
+  <strong>
+    28/2/2021
+  </strong>,
+  "",
+  "",
+]
+`;
+
+exports[`useI18n t returns the string for 1 messages 1`] = `
+Array [
+  "Olá Jane Doe. Tem 1 ",
+  <a
+    href="/messages"
+  >
+    mensagem
+  </a>,
+  "",
+  " do dia ",
+  <strong>
+    28/2/2021
+  </strong>,
+  "",
+  "",
+]
+`;
+
+exports[`useI18n t returns the string for 2 messages 1`] = `"Olá Jane Doe. Tem 2 <link>mensagens</link> do dia <b>28/2/2021</b>"`;
+
+exports[`useI18n t returns the string for 42 messages 1`] = `
+Array [
+  "Olá Jane Doe. Tem 42 ",
+  <a
+    href="/messages"
+  >
+    mensagens
+  </a>,
+  "",
+  " do dia ",
+  <strong>
+    28/2/2021
+  </strong>,
+  "",
+  "",
+]
+`;
