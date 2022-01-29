@@ -4,10 +4,11 @@ import useI18n, {
   I18nPluralValue,
   I18nSingleValue,
 } from "../hook/useI18n"
-import { FC } from "react"
+import React, { FC } from "react"
 
 type I18nProps =
-  | Record<I18nLocale, I18nSingleValue | I18nPluralValue> & {
+  | Record<I18nLocale, I18nSingleValue | I18nPluralValue>
+  | {
       count?: number
       params?: I18nParams
     }
@@ -15,16 +16,13 @@ type I18nProps =
 const I18n: FC<I18nProps> = (props) => {
   const { params, count, ...texts } = props
   const { t } = useI18n()
-  if (texts.children) {
-    throw new Error("I18n component must not have children")
-  }
   return (
-    <>
+    <React.Fragment>
       {t(texts as Record<I18nLocale, I18nSingleValue | I18nPluralValue>, {
-        params,
-        count,
+        params: params as I18nParams,
+        count: count as number,
       })}
-    </>
+    </React.Fragment>
   )
 }
 

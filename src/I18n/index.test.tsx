@@ -1,4 +1,3 @@
-import React from "react"
 import { create } from "react-test-renderer"
 import mockConsole from "jest-mock-console"
 import I18n from "."
@@ -15,20 +14,12 @@ jest.mock("next/router", () => ({
 
 describe("<I18n />", () => {
   beforeEach(() => {
-    mockConsole()
+   mockConsole()
   })
 
   describe("when passing pt and en", () => {
     it("renders pt text", () => {
       expect(create(<I18n pt="Olá" en="Hello" />).toJSON()).toMatchSnapshot()
-    })
-  })
-
-  describe("when passing children", () => {
-    it("must throw an error", () => {
-      expect(() => create(<I18n>Hello</I18n>)).toThrow(
-        "I18n component must not have children",
-      )
     })
   })
 
@@ -125,20 +116,34 @@ describe("<I18n />", () => {
       expect(
         create(
           <I18n
-            pt="Olá {{name}}. Acesse suas <link>mensagens</link> do dia <b>{{today locale}}</b>"
-            en="Hi, {{name}}. See your <link>messages</link> of <b>{{today locale}}</b>"
+            en={
+              'Hi, {{uppercase name.first}}. See your <link>messages</link> of <b>{{today "m/d/Y"}}</b>'
+            }
+            pt={
+              'Olá {{name.first}}. Acesse suas <link>mensagens</link> do dia <b>{{today "d/m/Y"}}</b>'
+            }
             params={{
-              name: "Jane Doe",
+              name: {
+                first: "Jane",
+                last: "Does",
+              },
               link: <a href="/messages" />,
               b: <strong />,
+              uppercase: (value: string) => {
+                return value.toUpperCase()
+              },
               today: (format: string) => {
-                const today = new Date()
-                switch (format) {
-                  case "locale":
-                    return today.toLocaleDateString()
-                  default:
-                    return today.toDateString()
-                }
+                const date = new Date("2021-02-28")
+                return format.replace(/d|m|Y/g, (match) => {
+                  switch (match) {
+                    case "d":
+                      return date.getDate().toString()
+                    case "m":
+                      return (date.getMonth() + 1).toString()
+                    case "Y":
+                      return date.getFullYear().toString()
+                  }
+                })
               },
             }}
           />,
