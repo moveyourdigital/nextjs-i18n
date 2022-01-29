@@ -1,7 +1,7 @@
 {
   "name": "nextjs-i18n",
-  "version": "0.1.0",
-  "description": "I18n hook and component for Next.js with support for plurals, Intl and React interpolation",
+  "version": "0.1.5",
+  "description": "I18n hook and component for Next.js with support for plurals, interpolations and JSX substitutions",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "unpkg": "./dist/index.umd.js",
@@ -21,7 +21,16 @@
     "type": "git",
     "url": "git+https://github.com/moveyourdigital/nextjs-i18n.git"
   },
-  "keywords": [],
+  "keywords": [
+    "nextjs",
+    "i18n",
+    "preact",
+    "react",
+    "jsx",
+    "plurals",
+    "useI18n",
+    "interpolation"
+  ],
   "author": "Vitor Carvalho <lightningspirit@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -30,6 +39,7 @@
   "homepage": "https://github.com/moveyourdigital/nextjs-i18n#README.md",
   "devDependencies": {
     "@testing-library/react": "^12.1.2",
+    "@types/dlv": "^1.1.2",
     "@types/jest": "^27.4.0",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -47,6 +57,10 @@
   },
   "peerDependencies": {
     "next": "^12.0.8",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "dlv": "^1.1.3"
   }
 }
