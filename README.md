@@ -18,6 +18,8 @@ I18n hook and component for Next.js with support for plurals, interpolations and
 - 👩🏽‍🎨 **Context**: Textual strings live in code, close to their context.
 - ✅ **Tests**: Unit tests with good coverage. Feel free to add your own.
 
+_Tested with React and Preact_
+
 ## Installation 🧑🏻‍💻
 
 ```sh
