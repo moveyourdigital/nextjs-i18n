@@ -1,22 +1,33 @@
 import { useRouter } from "next/router"
-import { ReactNode, ReactText, isValidElement, cloneElement } from "react"
+import React from "react"
+import dlv from "dlv"
 
 export type I18nLocale = Exclude<string, "count" | "params">
-export type I18nParam = ReactText | ReactNode
-export type I18nSingleValue = ReactText
-export type I18nPluralValue = { [n: number]: ReactText; n?: ReactText }
+// @ts-expect-error circular reference
+export type I18nSimpleParam = string | number | Record<string, I18nSimpleParam>
+
+export type I18nParam =
+  | I18nSimpleParam
+  | JSX.Element
+  | ((arg: string, args: I18nParams) => string)
+export type I18nSingleValue = string
+export type I18nPluralValue = {
+  [n: number]: string
+  n?: string
+}
 export type I18nParams = Record<string, I18nParam> & { count?: number }
 
 export type TranslateFn = (
   locales: Record<I18nLocale, I18nSingleValue | I18nPluralValue>,
-  args: {
+  args?: {
     params?: I18nParams
     count?: number
   },
-) => ReactText | ReactNode
+) => string | JSX.Element | JSX.Element[]
 
 const TAG_REGEXP = /<([a-z0-9_-]+)\b[^>]*>(.*?)<\/\1>/gi
-const STR_REGEXP = /{{([a-z0-9_-]+)\s*(.*?)}}/gi
+const STR_REGEXP = /{{([a-z0-9._-]+)\s*(.*?)}}/gi
+const LITERAL_REGEXP = /^"(.*)"$/i
 
 function useI18n() {
   const { locale, locales, defaultLocale } = useRouter()
@@ -40,52 +51,52 @@ function useI18n() {
     count?: number,
   ) => {
     const value = getBest(locales)
-    if (typeof value === "object") {
-      if (count in value) {
-        return value[count]
-      } else {
-        return value["n"]
-      }
-    } else {
-      return value
-    }
+    return typeof value === "object"
+      ? count in value
+        ? value[count]
+        : value["n"]
+      : value
   }
 
   const t: TranslateFn = (locales, args) => {
     let value = getValue(locales, args?.count)
 
     if (args?.params) {
-      value = value.toString().replace(STR_REGEXP, function (_, variable, arg) {
-        const substitute = args.params[variable]
-        if (typeof substitute === "function") {
-          return substitute(arg)
-        } else {
-          return substitute.toString()
-        }
-      })
+      value = value
+        .toString()
+        .replace(STR_REGEXP, function (_, variable: string, arg: string) {
+          const substitute = dlv(args.params, variable)
+          return typeof substitute === "function"
+            ? substitute(
+                LITERAL_REGEXP.test(arg)
+                  ? arg.substring(1, arg.length - 1)
+                  : dlv(args.params, arg),
+              )
+            : substitute.toString()
+        })
 
       if (TAG_REGEXP.test(value)) {
         return value.split(TAG_REGEXP).map((part, i, array) => {
           // must match 2nd and 3rd param on a group of four
           // see tests for example
-          if (i % 3 === 1) {
-            const element = args.params[part]
-            if (!isValidElement(element)) {
-              throw new Error(
-                "I18n received a non JSX element. Only use <tag> substitutes when variables are meant to be replaced by JSX elements.",
-              )
-            }
-            // empty the next one, which is a child element
-            const child = array[i + 1]
-            array[i + 1] = ""
-            return cloneElement(element, {
-              ...element.props,
-              key: i,
-              children: child,
-            })
-          } else {
-            return part
+          if (i % 3 !== 1) return part as unknown as JSX.Element
+
+          const element = dlv(args.params, part)
+          if (!React.isValidElement(element)) {
+            throw new Error(
+              `I18n received a non JSX element for <${part}> substitute.`,
+            )
           }
+          // empty the next one, which is a child element
+          const child = array[i + 1]
+          array[i + 1] = ""
+
+          return React.cloneElement(element, {
+            // @ts-expect-error JSX props type is unknown
+            ...element.props,
+            key: i,
+            children: child,
+          }) as JSX.Element
         })
       }
     }
