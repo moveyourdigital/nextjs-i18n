@@ -15,7 +15,8 @@ I18n hook and component for Next.js with support for plurals, interpolations and
 - 🚦  **SSR**: Supports SSR and SSG very well.
 - 🌱  **Easy**: No configuration. Just install and use it. No external translation files needed.
 - 🚀  **Powerful**: Supports plurals, templating, variable interpolation, JSX substitutions. Uses mustache syntax.
-- ✅  **Context**: Textual strings live in code, close to their context.
+- 👩🏽‍🎨  **Context**: Textual strings live in code, close to their context.
+- ✅  **Tests**: Unit tests with good coverage. Feel free to add your owns.
 
 ## Installation 🧑🏻‍💻
 
