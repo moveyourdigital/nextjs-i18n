@@ -20,7 +20,23 @@ Array [
 
 exports[`<I18n /> when passing function and elements as placeholders renders string with right substitutes 2`] = `
 Array [
-  "How did that happen? Maybe this route was valid in a point of time or the matrix had a glitch. Anyway, you can go back to our ",
+  "How did that happen? Maybe ",
+  <a
+    className="font-bold"
+    href="/this-route"
+  >
+    this route
+  </a>,
+  "",
+  " was valid in a point of time or the ",
+  <a
+    className="font-bold"
+    href="/matrix"
+  >
+    matrix
+  </a>,
+  "",
+  " had a glitch. Anyway, you can go back to our ",
   <a
     className="font-bold"
     href="/"

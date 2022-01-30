@@ -1,6 +1,6 @@
 {
   "name": "nextjs-i18n",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "I18n hook and component for Next.js with support for plurals, interpolations and JSX substitutions",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
