@@ -153,10 +153,12 @@ describe("<I18n />", () => {
       expect(
         create(
           <I18n
-            en="How did that happen? Maybe this route was valid in a point of time or the matrix had a glitch. Anyway, you can go back to our <link>homepage</link> to save the day."
-            pt="Como é que isto aconteceu? É provável que esta rota tenha já existido algures no tempo ou então aconteceu um erro na Matrix. Seja como for, poderá voltar para a <link>homepage</link> e salvar o dia!"
+            en="How did that happen? Maybe <0>this route</0> was valid in a point of time or the <1>matrix</1> had a glitch. Anyway, you can go back to our <2>homepage</2> to save the day."
+            pt="Como é que isto aconteceu? É provável que <0>esta rota</0> tenha já existido algures no tempo ou então aconteceu um erro na <1>Matrix</1>. Seja como for, poderá voltar para a <2>homepage</2> e salvar o dia!"
             params={{
-              link: <a href="/" className="font-bold" />,
+              0: <a href="/this-route" className="font-bold" />,
+              1: <a href="/matrix" className="font-bold" />,
+              2: <a href="/" className="font-bold" />,
             }}
           />,
         ).toJSON(),
