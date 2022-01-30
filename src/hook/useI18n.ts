@@ -43,7 +43,7 @@ function useI18n() {
       return locales[defaultLocale]
     }
 
-    throw new Error(`No string defined for ${defaultLocale}`)
+    throw new Error(`I18n no string for ${defaultLocale}`)
   }
 
   const getValue = (
@@ -83,9 +83,7 @@ function useI18n() {
 
           const element = dlv(args.params, part)
           if (!React.isValidElement(element)) {
-            throw new Error(
-              `I18n received a non JSX element for <${part}> substitute.`,
-            )
+            throw new Error(`I18n non JSX in <${part}>.`)
           }
           // empty the next one, which is a child element
           const child = array[i + 1]
