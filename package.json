@@ -50,7 +50,7 @@
     "jest": "^27.4.7",
     "jest-mock-console": "^1.2.3",
     "microbundle": "^0.14.2",
-    "npm-check-updates": "^12.2.1",
+    "npm-check-updates": "^16.7.4",
     "prettier": "^2.5.1",
     "react-test-renderer": "^17.0.2",
     "ts-jest": "^27.1.3"
